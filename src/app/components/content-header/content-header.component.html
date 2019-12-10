@@ -1,0 +1,14 @@
+
+
+<section class="content-header">
+  <h1>
+    {{ title }}
+    <small>{{ subTitle }}</small>
+  </h1>
+  <ol class="breadcrumb">
+    <ng-container *ngFor="let bc of breadcrumbs">
+      <li *ngIf="!bc.a"><a [routerLink]="[bc.l]"><i [ngClass]="icon"></i>{{ bc.t }}</a></li>
+      <li *ngIf="bc.a" class="active">{{ bc.t }}</li>
+    </ng-container>
+  </ol>
+</section>

@@ -1,0 +1,79 @@
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          Dashboard
+          <small>Pregled kategorija</small>
+        </h1>
+        <ol class="breadcrumb">
+          <li><a [routerLink]="['/']"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+          <li class="active">Kategorije</li>
+        </ol>
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+
+        <div class="row">
+          <div class="col-md-12">
+              <div class="box" *ngIf="doneLoading" >
+                  <div class="box-header with-border">
+                    <!--<h3 class="box-title"></h3>-->
+                    <app-add-kategoriju-modal [id]="'dodajKategorijuModal'" [mode]="'add'" (kategorijaAdded)="onKategorijaAdded($event)"></app-add-kategoriju-modal>
+                    <app-add-kategoriju-modal [id]="'editKategorijuModal'" [mode]="'edit'" (kategorijaUpdated)="onKategorijaUpdated($event)" [kategorija]="selectedKategorija"></app-add-kategoriju-modal>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                          <button hidden #editKategorijuBtn data-toggle="modal" data-target="#editKategorijuModal"></button>
+                          <button class="btn btn-primary" data-toggle="modal" data-target="#dodajKategorijuModal" style="margin-bottom: 15px;">
+                              <i  class="fa fa-plus"></i>&nbsp;&nbsp;
+                              Dodaj kategoriju
+                          </button>
+                        </div>
+                      <div class="col-md-6">
+                        <input class="form-control" placeholder="Search..." name="searchInput" [(ngModel)]="searchInput" style="margin-bottom: 15px;"/>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.box-header -->
+                  <div class="box-body">
+                    <table class="table table-bordered table-hover table-striped">
+                      <tbody><tr>
+                        <th>#</th>
+                        <th>Naziv</th>
+                        <th>Broj artikala</th>
+                        <th></th>
+                      </tr>
+                      <tr *ngFor="let k of kategorije; let i = index" class="my-data-table-row" (click)="onKategorijaClick(k)">
+                        <td>{{ i+1 }}.</td>
+                        <td>{{ k.naziv }}</td>
+                        <td>100</td>
+                        <td>
+                          <button class="btn btn-danger" (click)="onDelete(k, $event)">
+                            <i class="fa fa-trash"></i>
+                            &nbsp;&nbsp;
+                            Briši
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                  <!-- /.box-body -->
+                  <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-left">
+                      <li><a href="#">«</a></li>
+                      <li><a href="#">1</a></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">»</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- /.content -->
+    </div>

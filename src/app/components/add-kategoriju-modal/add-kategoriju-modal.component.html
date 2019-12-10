@@ -1,0 +1,34 @@
+
+<!-- Trigger the modal with a button -->
+<!--<button type="button" class="btn btn-info btn-lg" >Open Modal</button>-->
+
+<!-- Modal -->
+<div [attr.id]="id" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title">{{ title }}</h2>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+              <div class="col-xs-12">
+
+                <app-add-kategoriju-form [kategorija]="kategorija" [mode]="mode"
+                (kategorijaAdded)="onKategorijaAdded($event)"
+                (kategorijaUpdated)="onKategorijaUpdated($event)"></app-add-kategoriju-form>
+
+              </div>
+          </div>
+        </div>
+        <div class="clearfix">
+            <div class="modal-footer pull-left">
+
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>

@@ -1,0 +1,129 @@
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          Shopping Cart
+          <small>Checkout</small>
+        </h1>
+        <ol class="breadcrumb">
+          <li><a [routerLink]="['/shopping-cart']"><i class="fa fa-shopping-cart"></i> Shopping Cart</a></li>
+          <li class="active">Checkout</li>
+        </ol>
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+
+        <div class="row">
+          <div class="col-md-12">
+              <div class="box content-box">
+                  <div class="box-header with-border">
+                    <!--<h3 class="box-title"></h3>-->
+                  </div>
+                  <!-- /.box-header -->
+
+
+
+<div class="box-body">
+
+<div class="row">
+    <form  method="post" id="payment-form">
+            <div class="page-header text-center">
+                    <h1>Credit Card Payment Gateway</h1>
+                </div>
+                <!-- Credit Card Payment Form - START -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 col-md-offset-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <h3 class="text-center">Payment Details</h3>
+                                        <div class="inlineimage">
+                                          <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Mastercard-Curved.png">
+                                           <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Discover-Curved.png">
+                                           <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Paypal-Curved.png">
+                                           <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/American-Express-Curved.png">
+                                          </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <!--<form role="form">-->
+
+
+                                        <div class="form-row">
+
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <div class="form-group">
+                                                          <label for="full_name">Full Name</label>
+                                                          <input type="text" class="form-control" name="full_name" [(ngModel)]="checkoutData.full_name" placeholder="Card Owner Full Name" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+<!--
+
+                                                <div class="row">
+                                                  <div class="col-xs-12">
+                                                      <div class="form-group">
+                                                        <label for="city">City</label>
+                                                        <input type="text" class="form-control" name="city" [(ngModel)]="checkoutData.city" placeholder="City" />
+                                                      </div>
+                                                  </div>
+                                              </div>
+-->
+
+                                              <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="form-group">
+                                                      <label for="city">Address</label>
+                                                      <input type="text" class="form-control" name="address" [(ngModel)]="checkoutData.address" placeholder="Address" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                                <label for="card-element">
+                                                  Credit or debit card
+                                                </label>
+                                                <div id="card-element" class="form-control">
+                                                  <!-- A Stripe Element will be inserted here. -->
+                                                </div>
+
+                                                <!-- Used to display form errors. -->
+                                                <div id="card-errors"  class="form-control" role="alert" class="text text-danger"></div>
+                                            </div>
+
+                                    <!--
+                                    <div class="alert alert-danger {{ !Session::has('error') ? 'hidden' : '' }}" id="charge-error">
+                                        {{ Session::get('error') }}
+                                    </div>
+                                -->
+                                    <h3>Your Total: ${{ shoppingCartService.total }}</h3>
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="row">
+                                        <div class="col-xs-12"> <button type="submit" class="btn btn-success btn-lg btn-block">Confirm Payment</button> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- csrf_field() -->
+    </form>
+</div>
+
+
+
+
+                  </div>
+                  <!-- /.box-body -->
+                </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- /.content -->
+    </div>

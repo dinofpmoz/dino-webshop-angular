@@ -1,0 +1,83 @@
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          Dashboard
+          <small>Pregled korisnika</small>
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+          <li class="active">Korisnici</li>
+        </ol>
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+
+        <div class="row">
+          <div class="col-md-12">
+              <div class="box" *ngIf="doneLoading" >
+                  <div class="box-header with-border">
+                    <!--<h3 class="box-title"></h3>-->
+                    <app-add-korisnik-modal [id]="'dodajKorisnikaModal'" [mode]="'add'" (userAdded)="onUserAdded($event)"></app-add-korisnik-modal>
+                    <app-add-korisnik-modal [id]="'editKorisnikaModal'" [mode]="'edit'" (userUpdated)="onUserUpdated($event)" [user]="selectedUser"></app-add-korisnik-modal>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                          <button hidden #editUserBtn data-toggle="modal" data-target="#editKorisnikaModal"></button>
+                          <button class="btn btn-primary" data-toggle="modal" data-target="#dodajKorisnikaModal" style="margin-bottom: 15px;">
+                              <i  class="fa fa-plus"></i>&nbsp;&nbsp;
+                              Dodaj korisnika
+                          </button>
+                        </div>
+                      <div class="col-md-6">
+                        <input class="form-control" placeholder="Search..." name="searchInput" [(ngModel)]="searchInput" style="margin-bottom: 15px;"/>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- /.box-header -->
+                  <div class="box-body">
+                    <table class="table table-bordered table-hover table-striped">
+                      <tbody><tr>
+                        <th>#</th>
+                        <th>E-Mail</th>
+                        <th>Telefon / Mob.</th>
+                        <th>Role</th>
+                        <th>Datum kreiranja</th>
+                        <th></th>
+                      </tr>
+                      <tr *ngFor="let u of users; let i = index" class="my-data-table-row" (click)="onUserClick(u)">
+                        <td>{{ i+1 }}.</td>
+                        <td>{{ u.email }}</td>
+                        <td>{{ u.telefon }}</td>
+                        <td>{{ u.role }}</td>
+                        <td>{{ u.created_at | date: 'dd-MM-yyyy HH:mm:ss' }}</td>
+                        <td>
+                          <button class="btn btn-danger" (click)="onDelete(u, $event)">
+                            <i class="fa fa-trash"></i>
+                            &nbsp;&nbsp;
+                            Briši
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+                  <!-- /.box-body -->
+                  <div class="box-footer clearfix">
+                    <ul class="pagination pagination-sm no-margin pull-left">
+                      <li><a href="#">«</a></li>
+                      <li><a href="#">1</a></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">»</a></li>
+                    </ul>
+                  </div>
+                </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- /.content -->
+    </div>

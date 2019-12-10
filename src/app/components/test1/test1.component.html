@@ -1,0 +1,123 @@
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <app-content-header [title]="'Dashboard'" [subTitle]="'Control Panel'"
+                          [icon]="'fa fa-dashboard'"
+                          [breadcrumbs]="[{a: false, t:'Početna', l: ''}, {a: true, t:'Dashboard', l: ''}]"></app-content-header>
+
+      <!-- Main content -->
+      <section class="content">
+          <div class="row">
+            <div class="col-lg-6 col-xs-4"><div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">General Elements</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <form role="form" #testForm="ngForm">
+
+                    <!-- text input -->
+
+
+                    <div class="form-group" [class.has-success]="name.valid && name.touched" [class.has-error]="(name.invalid && name.touched)">
+                      <label for="name">Ime: </label>
+                        <input type="text" required minlength="3" maxlength="20" class="form-control" id="name" #name="ngModel" name="name" [(ngModel)]="obj.name" placeholder="Enter ...">
+                        <label *ngIf="name.valid" class="control-label" for="name"><i class="fa fa-check"></i> OK</label>
+                        <label *ngIf="name.hasError('required') && name.touched" class="control-label" for="error"><i class="fa fa-times"></i> Morate unijeti ime!</label>
+                        <label *ngIf="name.hasError('minlength')" class="control-label" for="error"><i class="fa fa-times"></i> Minimalna duljina 3!</label>
+                        <label *ngIf="name.hasError('maxlength')" class="control-label" for="error"><i class="fa fa-times"></i> Minimalna duljina 20!</label>
+                        <!--
+                        <label *ngIf="name.invalid && name.touched" class="control-label" for="name"><i class="fa fa-times"></i> ERROR</label>
+                        <ng-container *ngIf="name.invalid && name.touched">
+                          <label *ngFor="let err of errors" class="control-label" for="name"><i class="fa fa-times"></i> ERROR</label>
+                        </ng-container>
+                        -->
+                        <!--<span *ngIf="name.valid" class="help-block">Help block with success</span>
+                        <span *ngIf="name.invalid && name.touched" class="help-block">Help block with error</span>-->
+                    </div>
+
+
+                    <div class="form-group" [class.has-success]="last_name.valid && !last_name.pristine" [class.has-error]="(!last_name.valid && last_name.touched)">
+                      <label for="last_name">Prezime: </label>
+                        <input type="text" required class="form-control" id="last_name" #last_name="ngModel" name="last_name" [(ngModel)]="obj.last_name" placeholder="Prezime...">
+                        <label *ngIf="last_name.valid" class="control-label" for="last_name"><i class="fa fa-check"></i> OK</label>
+                        <label *ngIf="last_name.invalid && name.touched" class="control-label" for="name"><i class="fa fa-times"></i> ERROR</label>
+                        <!--<span *ngIf="name.valid" class="help-block">Help block with success</span>
+                        <span *ngIf="name.invalid && name.touched" class="help-block">Help block with error</span>-->
+                    </div>
+
+
+                    <div class="form-group" [class.has-success]="email.valid && !email.pristine" [class.has-error]="(!email.valid && email.touched)">
+                        <label for="email">E-Mail: </label>
+                          <input type="email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required class="form-control" id="email" #email="ngModel" name="email" [(ngModel)]="obj.email" placeholder="E-Mail...">
+                          <label *ngIf="name.valid" class="control-label" for="name"><i class="fa fa-check"></i> OK</label>
+                          <label *ngIf="name.invalid && name.touched" class="control-label" for="name"><i class="fa fa-times"></i> ERROR</label>
+                          <!--<span *ngIf="name.valid" class="help-block">Help block with success</span>
+                          <span *ngIf="name.invalid && name.touched" class="help-block">Help block with error</span>-->
+                      </div>
+
+                    <div class="form-group" [class.has-success]="password.valid && !password.pristine" [class.has-error]="(!password.valid && password.touched)">
+                        <label for="password">Password: </label>
+                          <input type="password" minlength="6" required class="form-control" id="password" #password="ngModel" name="password" [(ngModel)]="obj.password">
+                          <label *ngIf="password.valid" class="control-label" for="password"><i class="fa fa-check"></i> OK</label>
+                          <label *ngIf="password.invalid && password.touched" class="control-label" for="password"><i class="fa fa-times"></i> ERROR!</label>
+                          <!--<span *ngIf="name.valid" class="help-block">Help block with success</span>
+                          <span *ngIf="name.invalid && name.touched" class="help-block">Help block with error</span>-->
+                      </div>
+
+                      <br>
+
+                    <button type="button" class="btn btn-primary">SUBMIT</button>
+
+
+
+                  <!--
+                  <div class="form-group">
+                      <label>Name</label>
+                      <input type="text" class="form-control" #name name="name" [(ngModel)]="obj.name" placeholder="Enter ..." required>
+                      {{ name.className }}
+                    </div>
+                  <div class="form-group has-success" *ngIf="name.valid">
+                      <label class="control-label" for="name"><i class="fa fa-check"></i> Input with success</label>
+                      <input type="text" class="form-control" id="name" #name name="name" [(ngModel)]="obj.name" placeholder="Enter ...">
+                      <span class="help-block">Help block with success</span>
+                    </div>
+                    <div class="form-group has-warning">
+                      <label class="control-label" for="inputWarning"><i class="fa fa-bell-o"></i> Input with
+                        warning</label>
+                      <input type="text" class="form-control" id="inputWarning" placeholder="Enter ...">
+                      <span class="help-block">Help block with warning</span>
+                    </div>
+                    <div class="form-group has-error">
+                      <label class="control-label" for="inputError"><i class="fa fa-times-circle-o"></i> Input with
+                        error</label>
+                      <input type="text" class="form-control" id="inputError" placeholder="Enter ...">
+                      <span class="help-block">Help block with error</span>
+                    </div>
+
+
+                    <div class="form-group">
+                      <label>Textarea</label>
+                      <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label>Textarea Disabled</label>
+                      <textarea class="form-control" rows="3" placeholder="Enter ..." disabled=""></textarea>
+                    </div>
+                    input states -->
+
+                  </form>
+                </div>
+                <!-- /.box-body -->
+              </div>
+            </div>
+
+
+            <div class="col-lg-6 col-xs-4">
+                <p>{{ getJSON() }}</p>
+              </div>
+          </div>
+
+      </section>
+      <!-- /.content -->
+    </div>

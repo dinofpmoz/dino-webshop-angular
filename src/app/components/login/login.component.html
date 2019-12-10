@@ -1,0 +1,78 @@
+
+
+<div class="row">
+  <div class="col-md-12" style="height: 150px;"></div>
+</div>
+<!--
+<div class="content-wrapper">
+  <section class="content">
+  -->
+    <div class="row">
+      <div class="col-md-3 col-sm-3"></div>
+      <div class="col-md-6 col-sm-6">
+
+          <div class="box box-default">
+              <div class="box-header with-border text-center">
+                <h2 class="box-title" style="font-size: 45px;font-weight: bold;">Login</h2>
+              </div>
+              <!-- /.box-header -->
+              <!-- form start -->
+              <form class="form-horizontal">
+                <div class="box-body">
+                  <div class="form-group">
+                    <label for="email" class="col-sm-2 control-label">E-Mail:</label>
+
+                    <div class="col-sm-10">
+                      <input type="email" name="email" id="email" [(ngModel)]="email" class="form-control" placeholder="E-Mail">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="password" class="col-sm-2 control-label">Password:</label>
+
+                    <div class="col-sm-10">
+                      <input type="password" name="password" id="password" [(ngModel)]="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox"> Remember me
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                  <button type="submit" class="btn btn-info" (click)="btnLoginClick()">Sign in</button>
+                  &nbsp;&nbsp;
+                  <button type="submit" class="btn btn-default" (click)="email='';password='';">Cancel</button>
+                  <br>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-6">
+                        <div class="social-auth-links text-center">
+                            <p></p>
+                            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
+                              Facebook</a>
+                            <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
+                              Google+</a>
+                          </div>
+                    </div>
+                  </div>
+                  <a href="register.html" class="text-center">I forgot my password</a>
+                  <br>
+                  <a [routerLink]="['/signup']"  class="text-center">Don't have an account? Sign up!</a>
+                </div>
+                <!-- /.box-footer -->
+              </form>
+            </div>
+
+      </div>
+      <div class="col-md-3 col-sm-3"></div>
+    </div>
+    <!--
+  </section>
+</div>
+-->

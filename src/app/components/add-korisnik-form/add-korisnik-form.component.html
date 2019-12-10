@@ -1,0 +1,44 @@
+
+<form #addKorisnikForm>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group">
+              <label for="email">E-Mail: </label>
+                <input type="email" #email name="email" [(ngModel)]="user.email" class="form-control" placeholder="E-Mail...">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password: </label>
+                  <input type="password" #password name="password" [(ngModel)]="user.password" class="form-control">
+              </div>
+
+
+            <div class="form-group">
+                <label for="telefon">Telefon: </label>
+                  <input type="text" #telefon name="telefon" [(ngModel)]="user.telefon" class="form-control" placeholder="Broj telefona...">
+              </div>
+
+
+
+          <div class="form-group">
+              <ng-container>
+                <label for="role">Role:</label>
+                <select class="form-control" name="role" [(ngModel)]="user.role">
+                  <option value="admin">admin</option>
+                  <option value="user">user</option>
+                </select>
+                <!--<input type="text" class="form-control" name="editStanje" [(ngModel)]="obj.stanje" style="margin-bottom: 15px;"/>-->
+              </ng-container>
+            </div>
+
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-info" (click)="onSignup()">Sign up</button>
+                &nbsp;&nbsp;
+                <button type="submit" class="btn btn-default" (click)="onCancel()">Cancel</button>
+            </div>
+
+
+        </div>
+    </div>
+</form>

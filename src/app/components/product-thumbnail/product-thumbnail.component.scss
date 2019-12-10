@@ -1,0 +1,39 @@
+
+.thumbnail-wrapper{
+}
+
+.product-thumbnail-wrapper{
+  padding: 25px;
+}
+
+p, h3 {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+
+.thumbnail-wrapper:hover{
+  cursor: pointer;
+}
+
+.thumbnail-image{
+  min-height: 200px;
+  max-height: 200px;
+}
+
+.thumbnail-title{
+    font-weight: bold;
+}
+
+.thumbnail-price{
+    font-weight: bolder;
+    font-size: 28px;
+}
+
+.thumbnail-description{
+    color: #7f7f7f;
+}
+

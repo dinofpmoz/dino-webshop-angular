@@ -1,0 +1,31 @@
+
+<div class="col-md-3 col-sm-6 col-xs-12 product-thumbnail-wrapper" (click)="showDetails(product)">
+<div class="thumbnail thumbnail-wrapper">
+    <img class="thumbnail-image" width="250" height="200" [src]="product.img_path || 'http://placehold.it/250x200'" alt="...">
+      <div class="caption">
+
+          <a class="text-center" style="text-decoration: underline;" (click)="openUserPage(product.user.id, $event)">Korisnik: {{ product.user.email }}</a>
+      <h3 class="thumbnail-title">{{ product.naziv }}</h3>
+        <p class="thumbnail-description">{{ product.opis }}</p>
+        <br>
+        <!--<p class="pull-right"><a href="#" class="btn btn-success" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;Add to cart</a> <a href="#" class="btn btn-success" role="button"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;Add to cart</a></p>-->
+
+        <div class="clearfix">
+          <div class="thumbnail-price pull-left">${{ product.cijena | number: '1.2-2' }}</div>
+          <div class="pull-right">
+              <a (click)="addToCart(product, $event)" class="btn btn-success" role="button" *ngIf="showAddToCartBtn()">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;Add to cart
+              </a>
+              <a (click)="ukloni(product, $event)" class="btn btn-danger" role="button" *ngIf="!showAddToCartBtn()">
+                <i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Ukloni
+              </a>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <a class="pull-right" (click)="openKategorijaPage(product.kategorija.id, $event)">Kategorija: {{ product.kategorija.naziv }}</a>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>

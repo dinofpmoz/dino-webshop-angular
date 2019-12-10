@@ -1,0 +1,24 @@
+
+<form #addKategorijuForm>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group">
+              <label for="email">Naziv: </label>
+                <input type="text" #naziv name="naziv" [(ngModel)]="kategorija.naziv" class="form-control" placeholder="Naziv kategorije...">
+            </div>
+
+            <div class="form-group">
+
+                <button type="button" class="btn btn-success" data-dismiss="modal" (click)="onSubmit()">
+                    Spremi&nbsp;&nbsp;<i class="fa fa-save"></i>
+                </button>
+                &nbsp;
+                <button type="button" class="btn btn-danger" data-dismiss="modal"  (click)="onCancel()">
+                    Cancel&nbsp;&nbsp;<i class="fa fa-times"></i>
+                </button>
+            </div>
+
+
+        </div>
+    </div>
+</form>
