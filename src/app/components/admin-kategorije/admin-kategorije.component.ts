@@ -20,13 +20,15 @@ export class AdminKategorijeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.swal.showLoading("Učitavanje", false);
     this.kategorijeRestService.getAll()
       .subscribe(data => {
         this.kategorije = data;
         this.doneLoading = true;
+        this.swal.hideLoading();
       },
       err => {
-
+        this.swal.hideLoading();
       });
   }
 

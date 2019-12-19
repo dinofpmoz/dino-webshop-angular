@@ -20,11 +20,13 @@ export class AdminKorisniciComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.swal.showLoading("Učitavanje...", false);
     this.usersRestService.getAll()
       .subscribe(data => {
         this.users = data;
         this.doneLoading = true;
-      }, err => { this.doneLoading = true; });
+        this.swal.hideLoading();
+      }, err => { this.doneLoading = true; this.swal.hideLoading(); });
   }
 
   onUserClick(u) {

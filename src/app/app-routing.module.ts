@@ -21,7 +21,7 @@ const routes: Routes = [
       { path: '', pathMatch: 'full', component: IndexComponent },
       { path: 'test1', component: Test1Component },
       { path: 'shopping-cart', component: ShoppingCartComponent },
-      { path: 'checkout', component: CheckoutComponent },
+      { path: 'checkout', component: CheckoutComponent, canActivate: [LoginGuard]},
       { path: 'profile-settings', component: ProfileSettingsComponent, canActivate: [LoginGuard] },
       { path: 'pregled-artikla/:id', component: PregledArtiklaComponent },
       { path: 'admin/korisnici', component: AdminKorisniciComponent, canActivate: [AdminPageGuard] },
