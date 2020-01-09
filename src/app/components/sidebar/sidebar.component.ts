@@ -1,3 +1,4 @@
+import { DataStoreService } from './../../services/data-store.service';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,10 +10,14 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
 
   constructor(
-    public auth: AuthService
+    public auth: AuthService,
+    public store: DataStoreService
   ) { }
 
   ngOnInit() {
   }
 
+  onClick(item) {
+    this.store.sidebarItemKategorijaOnClick(item);
+  }
 }

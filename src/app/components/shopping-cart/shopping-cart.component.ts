@@ -13,16 +13,10 @@ export class ShoppingCartComponent implements OnInit {
 
   constructor(
     public shoppingCartService: ShoppingCartService,
-    private artikliRestService: ArtikliRestService,
     private location: Location
   ) { }
 
   ngOnInit() {
-    this.artikliRestService.getAllGrouped()
-      .subscribe(data => {
-        console.log(data);
-
-      });
   }
 
   nazad() {

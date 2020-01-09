@@ -13,17 +13,7 @@
           </div>
         </div>
 
-        <!-- search form -->
-        <form method="get" class="sidebar-form">
-          <div class="input-group">
-            <input type="text" name="q" class="form-control" placeholder="Search...">
-            <span class="input-group-btn">
-                  <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                  </button>
-                </span>
-          </div>
-        </form>
-        <!-- /.search form -->
+
 
 
         <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -57,7 +47,7 @@
                     </li>
 -->
                   <li>
-                      <a href="pages/widgets.html">
+                      <a [routerLink]="['/admin/kategorije']">
                         <i class="fa fa-dollar"></i> <span>Promet</span>
                         <span class="pull-right-container">
                         </span>
@@ -68,105 +58,15 @@
 
           <li class="header">KATEGORIJE</li>
 
-            <li>
-                <a href="pages/widgets.html">
-                  <i class="fa fa-car"></i> <span>Vozila</span>
+            <li *ngFor="let item of store.data.kategorijeSidebar" (click)="onClick(item)" [class.active]="item.kategorija.id == store?.filters.kategorija?.kategorija.id">
+                <a [routerLink]="">
+                <i [ngClass]="item.kategorija.icon"></i> <span>{{ item.kategorija.naziv }}</span>
                   <span class="pull-right-container">
-                    <small class="label pull-right bg-green">new</small>
+                    <small class="label pull-right bg-green">{{ item.count }}</small>
                   </span>
                 </a>
               </li>
 
-              <li>
-                  <a href="pages/widgets.html">
-                    <i class="fa fa-mobile"></i> <span>Mobiteli</span>
-                    <span class="pull-right-container">
-                      <small class="label pull-right bg-green">new</small>
-                    </span>
-                  </a>
-                </li>
-
-                <li>
-                    <a href="pages/widgets.html">
-                      <i class="fa fa-user"></i> <span>Odjeća i obuća</span>
-                      <span class="pull-right-container">
-                        <small class="label pull-right bg-green">new</small>
-                      </span>
-                    </a>
-                  </li>
-
-                  <li>
-                      <a href="pages/widgets.html">
-                        <i class="fa fa-diamond"></i> <span>Nakit</span>
-                        <span class="pull-right-container">
-                          <small class="label pull-right bg-green">new</small>
-                        </span>
-                      </a>
-                    </li>
-
-                    <li>
-                        <a href="pages/widgets.html">
-                          <i class="fa fa-gamepad"></i> <span>Videoigre</span>
-                          <span class="pull-right-container">
-                            <small class="label pull-right bg-green">new</small>
-                          </span>
-                        </a>
-                      </li>
-
-                      <li>
-                          <a href="pages/widgets.html">
-                            <i class="fa fa-building-o"></i> <span>Nekretnine</span>
-                            <span class="pull-right-container">
-                              <small class="label pull-right bg-green">new</small>
-                            </span>
-                          </a>
-                        </li>
-
-
-                        <li>
-                            <a href="pages/widgets.html">
-                              <i class="fa fa-book"></i> <span>Knjige</span>
-                              <span class="pull-right-container">
-                                <small class="label pull-right bg-green">new</small>
-                              </span>
-                            </a>
-                          </li>
-
-                          <li>
-                              <a href="pages/widgets.html">
-                                <i class="fa fa-music"></i> <span>Muzička oprema</span>
-                                <span class="pull-right-container">
-                                  <small class="label pull-right bg-green">new</small>
-                                </span>
-                              </a>
-                            </li>
-
-                            <li>
-                                <a href="pages/widgets.html">
-                                  <i class="fa fa-soccer-ball-o"></i> <span>Sportska oprema</span>
-                                  <span class="pull-right-container">
-                                    <small class="label pull-right bg-green">new</small>
-                                  </span>
-                                </a>
-                              </li>
-
-                              <li>
-                                  <a href="pages/widgets.html">
-                                    <i class="fa fa-leaf"></i> <span>Moj vrt</span>
-                                    <span class="pull-right-container">
-                                      <small class="label pull-right bg-green">new</small>
-                                    </span>
-                                  </a>
-                                </li>
-
-                                <li>
-                                    <a href="pages/widgets.html">
-                                      <i class="fa fa-plus"></i> <span>Sve ostalo</span>
-                                      <span class="pull-right-container">
-                                        <small class="label pull-right bg-green">new</small>
-                                      </span>
-                                    </a>
-                                  </li>
 
 
 

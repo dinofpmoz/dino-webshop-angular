@@ -27,3 +27,8 @@ $warning: #e18e0c;
 .content-box {
   min-height: 850px;
 }
+
+button:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}

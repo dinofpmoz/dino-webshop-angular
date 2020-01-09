@@ -24,7 +24,7 @@ export class SwalService {
     swal.fire({title: "<h1 class='font-popup-ucitavanje'>Upozorenje!</h1>", text: msg, icon: "warning"});
   }
 
-  showLoading(msg, allowOutsideClick){
+  showLoading(msg='Učitavanje...', allowOutsideClick=false){
     swal.fire({html: "<h1 class='font-popup-ucitavanje'>" + msg + "</h1>", allowOutsideClick: allowOutsideClick});
     swal.showLoading();
   }

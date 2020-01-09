@@ -1,3 +1,5 @@
+import { DataStoreService } from 'src/app/services/data-store.service';
+
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -11,7 +13,8 @@ export class LoginComponent implements OnInit {
   password = '';
 
   constructor(
-    private auth: AuthService
+    private auth: AuthService,
+    private dataStoreService: DataStoreService
   ) { }
 
   ngOnInit() {

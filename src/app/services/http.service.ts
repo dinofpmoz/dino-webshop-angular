@@ -5,7 +5,8 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpService {
-  API_LINK = 'https://dino-webshop-rest.herokuapp.com/api'; // https://dino-webshop-rest.herokuapp.com/api
+  //API_LINK = 'https://dino-webshop-rest.herokuapp.com/api'; // https://dino-webshop-rest.herokuapp.com/api
+  API_LINK = 'http://127.0.0.1:8000/api';
   options = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -13,6 +14,21 @@ export class HttpService {
   };
 
   constructor(private http: HttpClient) { }
+
+  request(method, link, data=null) {
+    if(method == 'get') {
+      return this.http.get(link);
+    }
+    else if(method == 'post') {
+      return this.http.post(link, data, this.options);
+    }
+    else if(method == 'delete') {
+      return this.http.delete(link, this.options);
+    }
+    if(method == 'put') {
+      return this.http.put(link, this.options);
+    }
+  }
 
   getAll(table) {
     return this.http.get(this.API_LINK + '/' + table);

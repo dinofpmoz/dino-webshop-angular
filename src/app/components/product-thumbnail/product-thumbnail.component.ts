@@ -1,3 +1,4 @@
+import { SwalService } from 'src/app/services/swal.service';
 import { ShoppingCartService } from './../../services/shopping-cart.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
@@ -9,9 +10,13 @@ import { Router } from '@angular/router';
 })
 export class ProductThumbnailComponent implements OnInit {
   @Input() product: any = {};
+  @Input() addToCartButtonDisabled = false;
   @Output() onUkloni = new EventEmitter<any>();
 
-  constructor(private router: Router, private shoppingCartService: ShoppingCartService) { }
+  constructor(
+    private router: Router,
+    private shoppingCartService: ShoppingCartService,
+    private swal: SwalService) { }
 
   ngOnInit() {
   }
@@ -27,7 +32,11 @@ export class ProductThumbnailComponent implements OnInit {
 
   addToCart(product, e) {
     e.stopPropagation();
-    this.shoppingCartService.dodajArtikl(product);
+    if(this.addToCartButtonDisabled) {
+      this.swal.err("Ne možete kupiti sami svoj artikl!");
+    } else {
+      this.shoppingCartService.dodajArtikl(product);
+    }
   }
 
   showDetails(product) {
