@@ -1,7 +1,9 @@
+import { ArtikliRestService } from './rest/artikli-rest.service';
 import { SwalService } from 'src/app/services/swal.service';
 import { Observable } from 'rxjs';
 import { HttpService } from './http.service';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +25,9 @@ export class DataStoreService {
 
   constructor(
     private http: HttpService,
-    private swal: SwalService
+    private swal: SwalService,
+    private router: Router,
+    private artikliService: ArtikliRestService
   ) { }
 
 
@@ -31,9 +35,29 @@ export class DataStoreService {
     this.filteredArtikli = this.filteredArtikli = JSON.parse(JSON.stringify(this.data.artikli));;
   }
 
+  dodajArtikl(artikl) {
+    this.artikliService.insert(artikl).subscribe(
+      data => {
+        this.data.artikli.unshift(data.data);
+        this.swal.ok("Artikl uspješno dodan!");
+        this.router.navigate(['/']);
+      },
+      err => {
+        this.swal.err("Greška!");
+      }
+    );
+  }
+
+  reset() {
+    this.filters = {};
+    this.applyFilters();
+    this.router.navigate(['/']);
+  }
+
   sidebarItemKategorijaOnClick(item) {
     this.filters.kategorija = item;
     this.applyFilters();
+    this.router.navigate(['/']);
   }
 
   searchInputOnKeyUp(text) {
@@ -53,10 +77,10 @@ export class DataStoreService {
       this.filteredArtikli.sort((a, b) => { return b.cijena - a.cijena; });
      }
     else if(this.filters.sort == 3) {
-      this.filteredArtikli.sort((a, b) => { return new Date(a.created_at) - new Date(b.created_at); });
+      this.filteredArtikli.sort((a, b) => { return new Date(a.created_at).getTime() - new Date(b.created_at).getTime(); });
     }
     else if(this.filters.sort == 4) {
-      this.filteredArtikli.sort((a, b) => { return new Date(b.created_at) - new Date(a.created_at); });
+      this.filteredArtikli.sort((a, b) => { return new Date(b.created_at).getTime() - new Date(a.created_at).getTime(); });
     }
   }
 

@@ -1,7 +1,9 @@
+import { CheckoutService } from 'src/app/services/rest/checkout.service';
 import { ArtikliRestService } from './../../services/rest/artikli-rest.service';
 import { SwalService } from './../../services/swal.service';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-settings',
@@ -11,12 +13,14 @@ import { Component, OnInit } from '@angular/core';
 export class ProfileSettingsComponent implements OnInit {
   user: any = {};
   artikli: any = [];
+  racuni: any = [];
 
 
   constructor(
     private auth: AuthService,
     private artikliRestService: ArtikliRestService,
-    private swal: SwalService
+    private swal: SwalService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -24,7 +28,11 @@ export class ProfileSettingsComponent implements OnInit {
     this.artikliRestService.getForUser(this.user.id)
       .subscribe(data => {
         this.artikli = data;
-      })
+      });
+  }
+
+  dodajArtikl() {
+    this.router.navigate(['/dodaj-artikl']);
   }
 
   ukloni(product) {

@@ -30,6 +30,9 @@ import { OnlyNumberDirective } from './directives/only-number.directive';
 import { PregledArtiklaComponent } from './components/pregled-artikla/pregled-artikla.component';
 import { PregledKorisnikaComponent } from './components/pregled-korisnika/pregled-korisnika.component';
 import { ProfileSettingsComponent } from './components/profile-settings/profile-settings.component';
+import { PregledRacunaComponent } from './components/pregled-racuna/pregled-racuna.component';
+import { PregledRacunaDetaljiComponent } from './components/pregled-racuna-detalji/pregled-racuna-detalji.component';
+import { AddArtiklComponent } from './components/add-artikl/add-artikl.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +59,10 @@ import { ProfileSettingsComponent } from './components/profile-settings/profile-
     OnlyNumberDirective,
     PregledArtiklaComponent,
     PregledKorisnikaComponent,
-    ProfileSettingsComponent
+    ProfileSettingsComponent,
+    PregledRacunaComponent,
+    PregledRacunaDetaljiComponent,
+    AddArtiklComponent
   ],
   imports: [
     BrowserModule,

@@ -20,6 +20,12 @@ export class IndexComponent implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
+  resetFiltersBtnClick() {
+    this.searchInput = '';
+    this.sortSelect  = '0';
+    this.store.reset();
+  }
+
   searchInputOnKeyUp(e) {
     this.store.searchInputOnKeyUp(e.target.value);
   }
@@ -29,9 +35,9 @@ export class IndexComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    var s = document.createElement("script");
-    s.type = "text/javascript";
-    s.src = "../../../assets/template/dist/js/pages/dashboard.js";
+    const s  = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src  = '../../../assets/template/dist/js/pages/dashboard.js';
     this.elementRef.nativeElement.appendChild(s);
   }
 

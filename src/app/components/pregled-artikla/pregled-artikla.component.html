@@ -1,1 +1,51 @@
-<p>pregled-artikla works!</p>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          Artikli
+          <small>Pregled artikla</small>
+        </h1>
+        <ol class="breadcrumb">
+          <li><a [routerLink]="['/']"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+          <li class="active">Pregled artikla</li>
+        </ol>
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+
+        <ng-container *ngIf="doneLoading">
+            <div class="row text-center">
+                <div class="col-md-12">
+                  <h2>{{ artikl.naziv }}</h2>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <img class="thumbnail-image" width="250" height="200" [src]="artikl.img_path || 'http://placehold.it/250x200'" alt="...">
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-12">
+                  <h2>Cijena: {{ artikl.cijena | number: '1.2-2' }} KM</h2>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-12">
+                  <h5>Korisnik: {{ artikl?.user.email }}</h5>
+                  <h5>Kategorija: {{ artikl?.kategorija.naziv }}</h5>
+                </div>
+            </div>
+
+
+            <div class="row text-center">
+                <div class="col-md-12">
+                  <hr>
+                  <p>{{ artikl.opis }}</p>
+                </div>
+            </div>
+        </ng-container>
+      </section>
+      <!-- /.content -->
+    </div>

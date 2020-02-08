@@ -21,8 +21,7 @@
               <li class="active"><a href="#user-info" data-toggle="tab">Info</a></li>
               <li ><a href="#komentari" data-toggle="tab">Komentari</a></li>
               <li><a href="#artikli" data-toggle="tab">Moji artikli</a></li>
-              <li><a href="#kupovine" data-toggle="tab">Moje kupovine</a></li>
-              <li><a href="#prodaja" data-toggle="tab">Prodaja</a></li>
+              <li><a href="#racuni" data-toggle="tab">Računi</a></li>
             </ul>
             <div class="tab-content">
 
@@ -180,7 +179,7 @@
               </div>
 
               <div class="tab-pane" id="artikli">
-                <button class="btn btn-primary">
+                <button class="btn btn-primary" (click)="dodajArtikl()">
                   <i class="fa fa-plus"></i>Dodaj artikl&nbsp;
                 </button>
                 <!-- The timeline -->
@@ -202,14 +201,11 @@
               </div>
 
 
-              <div class="tab-pane" id="kupovine">
-                <h1>Kupovine</h1>
+              <div class="tab-pane" id="racuni">
+                <app-pregled-racuna></app-pregled-racuna>
               </div>
 
 
-              <div class="tab-pane" id="prodaja">
-                <h1>Prodaja</h1>
-              </div>
 
               <!-- /.tab-pane -->
             </div>

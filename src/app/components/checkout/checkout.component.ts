@@ -3,6 +3,7 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { SwalService } from 'src/app/services/swal.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { CheckoutService } from 'src/app/services/rest/checkout.service';
+import { Router } from '@angular/router';
 
 declare var Stripe: any;
 
@@ -15,7 +16,7 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
   checkoutData: any = {};
 
   constructor(private elementRef: ElementRef, public shoppingCartService: ShoppingCartService, private swal: SwalService,
-    private auth: AuthService, private checkoutService: CheckoutService) { }
+    private auth: AuthService, private checkoutService: CheckoutService, private router: Router) { }
 
   ngAfterViewInit() {
 
@@ -73,6 +74,7 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
               this.swal.hideLoading();
               this.swal.ok(data.msg);
               this.shoppingCartService.isprazni();
+              this.router.navigate(['/']);
             },
             err => {
               this.swal.hideLoading();
@@ -85,6 +87,21 @@ export class CheckoutComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+  }
+
+
+  validate(e) {
+    if(this.checkoutData.full_name) {
+      if(this.checkoutData.address){
+
+      } else {
+        this.swal.err("Unesite adresu!");
+        e.preventDefault();
+      }
+    } else {
+      this.swal.err("Unesite ime i prezime!");
+      e.preventDefault();
+    }
   }
 
 }

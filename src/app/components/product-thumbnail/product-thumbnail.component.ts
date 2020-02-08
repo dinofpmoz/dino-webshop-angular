@@ -40,7 +40,7 @@ export class ProductThumbnailComponent implements OnInit {
   }
 
   showDetails(product) {
-    alert(JSON.stringify(product));
+    this.router.navigate(['/pregled-artikla/' + product.id]);
   }
 
   openUserPage(userId, e) {

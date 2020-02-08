@@ -5,8 +5,8 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpService {
-  //API_LINK = 'https://dino-webshop-rest.herokuapp.com/api'; // https://dino-webshop-rest.herokuapp.com/api
-  API_LINK = 'http://127.0.0.1:8000/api';
+  API_LINK = 'https://dino-webshop-rest2.herokuapp.com/api'; // https://dino-webshop-rest.herokuapp.com/api
+  //API_LINK = 'http://127.0.0.1:8000/api';
   options = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'

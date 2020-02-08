@@ -2,9 +2,9 @@
   <!-- Logo -->
   <a [routerLink]="['/']" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini"><b>A</b>LT</span>
+    <span class="logo-mini"><b>W</b>SP</span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>Admin</b>LTE</span>
+    <span class="logo-lg"><b>Web</b>SHOP</span>
   </a>
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top">
@@ -29,7 +29,7 @@
 
         <ng-container *ngIf="auth.get()">
                   <!-- Messages: style can be found in dropdown.less-->
-        <li class="dropdown messages-menu">
+        <li class="dropdown messages-menu" style="display: none;">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o"></i>
               <span class="label label-warning" style="font-size: 15px;">4</span>
@@ -106,7 +106,7 @@
             </ul>
           </li>
           <!-- Notifications: style can be found in dropdown.less -->
-          <li class="dropdown notifications-menu">
+          <li class="dropdown notifications-menu" style="display: none;" >
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
               <span class="label label-danger" style="font-size: 15px;">10</span>
@@ -161,7 +161,7 @@
                 <img src="assets/template/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
+                  {{ auth.get().email }}
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>

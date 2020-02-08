@@ -1,3 +1,6 @@
+import { AddArtiklComponent } from './components/add-artikl/add-artikl.component';
+import { PregledRacunaDetaljiComponent } from './components/pregled-racuna-detalji/pregled-racuna-detalji.component';
+import { PregledRacunaComponent } from './components/pregled-racuna/pregled-racuna.component';
 import { PregledArtiklaComponent } from './components/pregled-artikla/pregled-artikla.component';
 import { ProfileSettingsComponent } from './components/profile-settings/profile-settings.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
@@ -11,7 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { Test1Component } from './components/test1/test1.component';
 import { IndexComponent } from './components/index/index.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { LoginGuard } from './guards/login.guard';
 
@@ -23,7 +26,10 @@ const routes: Routes = [
       { path: 'shopping-cart', component: ShoppingCartComponent },
       { path: 'checkout', component: CheckoutComponent, canActivate: [LoginGuard]},
       { path: 'profile-settings', component: ProfileSettingsComponent, canActivate: [LoginGuard] },
+      { path: 'pregled-racuna', component: PregledRacunaComponent, canActivate: [LoginGuard] },
+      { path: 'pregled-racuna/:id', component: PregledRacunaDetaljiComponent, canActivate: [LoginGuard] },
       { path: 'pregled-artikla/:id', component: PregledArtiklaComponent },
+      { path: 'dodaj-artikl', component: AddArtiklComponent, canActivate: [LoginGuard] },
       { path: 'admin/korisnici', component: AdminKorisniciComponent, canActivate: [AdminPageGuard] },
       { path: 'admin/kategorije', component: AdminKategorijeComponent, canActivate: [AdminPageGuard] },
     ]
