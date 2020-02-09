@@ -25,6 +25,10 @@ export class AddArtiklComponent implements OnInit {
     this.artikl.user_id = this.auth.getId();
   }
 
+  onCancel() {
+
+  }
+
   dodajArtikl() {
     if(this.validate()) {
       this.store.dodajArtikl(this.artikl);
